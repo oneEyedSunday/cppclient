@@ -30,6 +30,10 @@ const router = express.Router()
 
 app.get('/api/values', (req, res) => {
 	return res.send(members.getAll())
+	// return res.sendStatus(404);
+	// return res.status(404).send({
+	// 	"message": "Server down. In Maintenance"
+	// })
 })
 
 app.get('/api/values/:id', (req, res) => {

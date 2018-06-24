@@ -12,7 +12,13 @@ class Members {
 	}
 
 	get(id){
-		return Members.members.filter(m => m.id === id)
+		const val =  Members.members.filter(m => m.id === id);
+		console.log(val)
+		if(val === null || val == null || val ===undefined){
+			return null;
+		}
+
+		return val[0];
 	}
 
 	update(id, data){
