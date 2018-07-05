@@ -25,8 +25,13 @@ members.add({
 })
 
 
-
-const router = express.Router()
+app.use('/', (req, res, next) => {
+	console.log(req.url)
+	console.log(req.method)
+	console.log(req.body)
+	// console.log(req)
+	next()
+})
 
 app.get('/api/values', (req, res) => {
 	return res.send(members.getAll())
@@ -44,7 +49,8 @@ app.get('/api/values/:id', (req, res) => {
 
 app.post('/api/values', (req, res) => {
 	const m = members.add(req.body)
-	return res.json(m)
+	console.log('hit post endpoint', m);
+	return res.json(m.id)
 })
 
 app.put('/api/values/:id', (req, res) => {
